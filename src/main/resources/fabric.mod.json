@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "gravestonesfix",
+	"version": "${version}",
+	"name": "GravestonesFix",
+	"description": "Fixes for Gravestones",
+	"authors": [
+		"ThePotatoArchivist"
+	],
+	"contact": {
+		"homepage": "https://github.com/JosiahFu/GravestonesFix/",
+		"sources": "https://github.com/JosiahFu/GravestonesFix/"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/gravestonesfix/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"archives.tater.gravestonesfix.GravestonesFix"
+		]
+	},
+	"mixins": [
+		"gravestonesfix.mixins.json"
+	],
+	"depends": {
+		"gravestones": "~v1.15",
+		"fabricloader": ">=0.15.3",
+		"minecraft": "~1.20",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
