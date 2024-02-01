@@ -8,10 +8,10 @@
 		"ThePotatoArchivist"
 	],
 	"contact": {
-		"homepage": "https://github.com/JosiahFu/GravestonesFix/",
+		"homepage": "https://modrinth.com/mod/gravestones-fix",
 		"sources": "https://github.com/JosiahFu/GravestonesFix/"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/gravestonesfix/icon.png",
 	"environment": "*",
 	"entrypoints": {
