@@ -1,21 +1,17 @@
 package archives.tater.gravestonesfix.mixin;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.guavy.gravestones.Gravestones;
-import net.guavy.gravestones.block.GravestoneBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.FluidBlock;
 import net.minecraft.fluid.FlowableFluid;
-import net.minecraft.registry.tag.TagKey;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(FlowableFluid.class)
 public class FlowableFluidMixin {
-    @Redirect(
+    @WrapOperation(
             method = "canFill",
             at = @At(
                     value = "INVOKE",
@@ -23,7 +19,7 @@ public class FlowableFluidMixin {
                     ordinal = 0
             )
     )
-    private boolean preventGravestone(BlockState state, Block block) {
-        return state.isOf(block) || state.isOf(Gravestones.GRAVESTONE);
+    private boolean preventGravestone(BlockState instance, Block block, Operation<Boolean> original) {
+        return original.call(instance, block) || instance.isOf(Gravestones.GRAVESTONE);
     }
 }
